@@ -60,7 +60,7 @@ int main(int argc, char* argv[])
 	delete model;
 	return 0;
 }
-/*
+
 void line(int x0, int y0, int x1, int y1, TGAImage& image, TGAColor color)
 {
 	/*
@@ -78,7 +78,7 @@ void line(int x0, int y0, int x1, int y1, TGAImage& image, TGAColor color)
 		float t = (x - x0) / (float)(x1 - x0);
 		int y = y0 * (1.0 - t) + y1 * t;
 		image.set(x, y, color);
-	}*//*
+	}*/
 
 	// DDA
 	int dx = x1 - x0;
@@ -88,20 +88,20 @@ void line(int x0, int y0, int x1, int y1, TGAImage& image, TGAColor color)
 
 	int steps = abs(dx) > abs(dy) ? abs(dx) : abs(dy);
 
-	int inc_x = dx / (float)steps;
-	int inc_y = dy / (float)steps;
+	float inc_x = dx / (float)steps;
+	float inc_y = dy / (float)steps;
 
-	int x = x0;
-	int y = y0;
+	float x = x0;
+	float y = y0;
 
 	for (int i = 0; i < steps; i++)
 	{
-		image.set(ceil(x), ceil(y), color);
+		image.set(round(x), round(y), color);
 		x += inc_x;
 		y += inc_y;
 	}
 
-}*/
+}
 
 /*
 void line(int x0, int y0, int x1, int y1, TGAImage& image, TGAColor color) {
